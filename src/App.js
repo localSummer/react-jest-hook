@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Provider} from 'mobx-react';
+import store from './store/index';
+import HookDemo01 from './components/hooks/Demo01';
+import ClassCom from './components/ClassCom';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <HookDemo01></HookDemo01>
+        <ClassCom></ClassCom>
+      </div>
+    </Provider>
   );
 }
 
