@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UseFoo /> renders three <Foo /> components 1`] = `
+<div>
+  <Foo
+    msg="1"
+  />
+  <Foo
+    msg="2"
+  />
+  <Foo
+    msg="3"
+  />
+</div>
+`;
