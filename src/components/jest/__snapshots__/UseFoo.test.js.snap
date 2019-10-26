@@ -1,7 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<UseFoo /> renders three <Foo /> components 1`] = `
-<div>
+<div
+  className="foo"
+>
+  <span
+    className="foo icon-star bar"
+  >
+    icon-star
+  </span>
   <Foo
     msg="1"
   />
