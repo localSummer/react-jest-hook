@@ -1,15 +1,18 @@
 import React from 'react';
-// import {Provider} from 'mobx-react';
+import {Provider} from 'mobx-react';
 // import store from './store/index';
 /* import HookDemo01 from './components/hooks/Demo01';
 import ClassCom from './components/ClassCom';
 import {Counter} from './store/HookStore'; */
+import { useStores } from './hooks/user-store';
 import { Counter } from './components/hooks/CounterTrigger';
 import { ThemeToggler } from './components/hooks/ThemeToggler';
 import CounterClass from './components/hooks/CounterClass';
+import ThemeClass from './components/hooks/ThemeClass';
 import './App.scss';
 
 function App() {
+  const store = useStores();
   return (
     <div className="App">
       {/* <Counter>
@@ -19,6 +22,9 @@ function App() {
       <Counter />
       <ThemeToggler />
       <CounterClass />
+      <Provider store={store}>
+        <ThemeClass/>
+      </Provider>
     </div>
   );
 }
