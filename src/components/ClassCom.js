@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {inject, observer} from 'mobx-react';
-import {Observer} from 'mobx-react-lite';
+import {inject, observer, Observer} from 'mobx-react';
 import {MyContext} from '../store/HookStore';
 import {toJS} from 'mobx';
 

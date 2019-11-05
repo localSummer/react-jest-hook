@@ -1,4 +1,6 @@
 import {observable, action} from 'mobx';
+export * from './counter-store';
+export * from './theme-store';
 
 class Store {
   @observable
