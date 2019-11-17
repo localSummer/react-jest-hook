@@ -1,5 +1,5 @@
 import React, {createContext, useEffect} from 'react';
-import {useLocalStore} from 'mobx-react-lite';
+import {useLocalStore} from 'mobx-react';
 
 export const MyContext = createContext(null);
 
