@@ -144,10 +144,14 @@ function Dep() {
   this.subs = [];
 }
 
+function isDistinctWatcher(watchers, sub) {
+  return watchers.filter(watcher => watcher.exp === sub.exp && watcher.fn === sub.fn).length === 0;
+}
+
 Dep.prototype = {
   addSub(sub) {
     // 过滤掉重复的watcher
-    if (this.subs.filter(watcher => watcher.exp === sub.exp && watcher.fn === sub.fn).length === 0) {
+    if (isDistinctWatcher(this.subs, sub)) {
       this.subs.push(sub);
     }
   },
