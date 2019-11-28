@@ -34,6 +34,19 @@
         },
         singer: '周杰伦',
         name: '',
+        a: 1,
+        b: 9,
+      },
+      computed: {
+        sum() {
+          return this.a + this.b;
+        },
+        noop() {},
+      },
+      mounted() {
+        setTimeout(() => {
+          console.log('所有事情都搞定了');
+        }, 1000);
       }
     });
     console.log(mvvm);
