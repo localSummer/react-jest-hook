@@ -96,20 +96,20 @@ function Compile(el, vm) {
         Array.from(nodeAttr).forEach(attr => {
           let name = attr.name;
           let exp = attr.value;
-          if (name.includes('v-')) {
+          if (name.includes('v-model')) {
             node.value = vm[exp]
-          }
-          // 监听变化
-          new Watcher(vm, exp, (newVal) => {
-            node.value = newVal;
-          });
+            // 监听变化
+            new Watcher(vm, exp, (newVal) => {
+              node.value = newVal;
+            });
 
-          node.addEventListener('input', e => {
-            let newVal = e.target.value;
-            // 相当于给exp赋了一个新值
-            // 而值的改变会调用set，set中又会调用notify，notify中调用watcher的update方法实现了更新
-            vm[exp] = newVal;
-          })
+            node.addEventListener('input', e => {
+              let newVal = e.target.value;
+              // 相当于给exp赋了一个新值
+              // 而值的改变会调用set，set中又会调用notify，notify中调用watcher的update方法实现了更新
+              vm[exp] = newVal;
+            })
+          }
         });
       } else if (node.nodeType === 3 && reg.test(txt)) {
         // 文本节点
