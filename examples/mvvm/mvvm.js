@@ -146,7 +146,10 @@ function Dep() {
 
 Dep.prototype = {
   addSub(sub) {
-    this.subs.push(sub);
+    // 过滤掉重复的watcher
+    if (this.subs.filter(watcher => watcher.exp === sub.exp && watcher.fn === sub.fn).length === 0) {
+      this.subs.push(sub);
+    }
   },
   notify() {
     this.subs.forEach(sub => sub.update())
