@@ -9,6 +9,7 @@ import { Counter } from './components/hooks/CounterTrigger';
 import { ThemeToggler } from './components/hooks/ThemeToggler';
 import CounterClass from './components/hooks/CounterClass';
 import ThemeClass from './components/hooks/ThemeClass';
+import TestUsePrevious from './components/hooks/TestUsePrevious';
 import './App.scss';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Provider store={store}>
         <ThemeClass/>
       </Provider>
+      <TestUsePrevious/>
     </div>
   );
 }
