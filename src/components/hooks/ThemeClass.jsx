@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStores } from '../../hooks/user-store';
-import { observer } from 'mobx-react-lite';
+import { useObserver } from 'mobx-react-lite';
 
-const ThemeClass = observer(() => {
+const ThemeClass = () => {
   let store = useStores();
 
   const handleIncrement = () => {
@@ -12,7 +12,7 @@ const ThemeClass = observer(() => {
     store.counterStore.decrement();
   }
   const {counterStore, themeStore} = store;
-  return (
+  return useObserver(() => (
     <div>
       <p>mobx-react Provider</p>
       count: {counterStore.count}
@@ -20,7 +20,7 @@ const ThemeClass = observer(() => {
       <button onClick={handleIncrement}>add</button>
       <button onClick={handleDecrement}>dec</button>
     </div>
-  )
-})
+  ))
+}
 
 export default ThemeClass;
