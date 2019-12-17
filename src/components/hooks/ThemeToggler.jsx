@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStores } from '../../hooks/user-store';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 
 export const ThemeToggler = observer(() => {
   const { themeStore } = useStores()

@@ -1,27 +1,26 @@
 import React from 'react';
-import { inject, observer } from 'mobx-react'; 
+import { useStores } from '../../hooks/user-store';
+import { observer } from 'mobx-react-lite';
 
-@inject('store')
-@observer
-class ThemeClass extends React.Component {
-  handleIncrement = () => {
-    this.props.store.counterStore.increment();
+const ThemeClass = observer(() => {
+  let store = useStores();
+
+  const handleIncrement = () => {
+    store.counterStore.increment();
   }
-  handleDecrement = () => {
-    this.props.store.counterStore.decrement();
+  const handleDecrement = () => {
+    store.counterStore.decrement();
   }
-  render() {
-    const {counterStore, themeStore} = this.props.store;
-    return (
-      <div>
-        <p>mobx-react Provider</p>
-        count: {counterStore.count}
-        theme: {themeStore.theme}
-        <button onClick={this.handleIncrement}>add</button>
-        <button onClick={this.handleDecrement}>dec</button>
-      </div>
-    )
-  }
-}
+  const {counterStore, themeStore} = store;
+  return (
+    <div>
+      <p>mobx-react Provider</p>
+      count: {counterStore.count}
+      theme: {themeStore.theme}
+      <button onClick={handleIncrement}>add</button>
+      <button onClick={handleDecrement}>dec</button>
+    </div>
+  )
+})
 
 export default ThemeClass;

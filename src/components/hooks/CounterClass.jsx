@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { storesContext } from '../../contexts';
+import { StoresContext } from '../../contexts';
 
 @observer
 class CounterClass extends React.Component {
-  static contextType = storesContext;
+  static contextType = StoresContext;
   handleIncrement = () => {
     this.context.counterStore.increment();
   }
@@ -12,7 +12,6 @@ class CounterClass extends React.Component {
     this.context.counterStore.decrement();
   }
   render() {
-    console.log(this.context);
     return (
       <div>
         count: {this.context.counterStore.count}
